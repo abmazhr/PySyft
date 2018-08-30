@@ -399,9 +399,9 @@ class BaseWorker(ABC):
           the object to be returned.
 
         """
-
         obj = self._objects[int(remote_key)]
         # Fix ownership if the obj has been modified out of control (like with backward())
+        Small fix related to pointer on grad of non-leaf variables
         torch_utils.enforce_owner(obj, self)
         return obj
 
